@@ -12,4 +12,8 @@
 !/log/.keep
 /tmp
 
+# OS
 .DS_Store
+
+# Ignore Spring files.
+/spring/*.pid
