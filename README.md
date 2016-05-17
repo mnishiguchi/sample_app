@@ -25,3 +25,9 @@ $ rails generate integration_test site_layout
 ```bash
 $ bundle exec rake test:integration
 ```
+
+### Generate controller
+
+```bash
+$ rails generate controller Users new
+```
