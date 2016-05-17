@@ -9,7 +9,6 @@ by [Michael Hartl](http://www.michaelhartl.com/).
 
 ## Memo
 
-
 ### Model test
 
 #### Run
@@ -67,3 +66,17 @@ rake db:rollback
 ### Fixtures
 
 - Default fixtures that were generated automatically by Rails sometimes cause a test to fail. Just delete them.
+
+---
+
+### The method for authenticating users
+By comparing hashed values instead of raw passwords, we will be able to authenticate users without storing the passwords themselves. This means that, even if our database is compromised, our users’ passwords will still be secure.
+
+1. Take a submitted password
+2. Hash it
+3. Compare the result to the hashed value stored in the database
+4. If the two match, then the submitted password is correct and the user is authenticated.
+
+https://www.railstutorial.org/book/modeling_users#sec-adding_a_secure_password
+
+---
