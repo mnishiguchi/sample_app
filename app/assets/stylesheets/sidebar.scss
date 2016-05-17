@@ -1,7 +1,19 @@
 // Adopted from https://github.com/poole/lanyon
 
-$hamburgar-color-1: #555;
+$hamburgar-color-1: $black;
 $hamburgar-color-2: #fff;
+
+$navbar-height: 56px;
+
+
+@mixin navbar-item-align {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  height: $navbar-height;
+  line-height: $navbar-height;
+}
+
 
 /*
  * Sidebar
@@ -34,10 +46,22 @@ $hamburgar-color-2: #fff;
   background-color: $black;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
-}
-@media (min-width: 30em) {
-  .sidebar {
+  @media (min-width: 30em) {
     font-size: .75rem; /* 14px */
+  }
+  @media only screen and (min-width : 768px) {
+    position: fixed;
+    top: 0;
+    right:0;
+    bottom:0;
+    left: 0;
+    z-index: 2;
+    width: auto;
+    height: $navbar-height;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    visibility: visible;
+    overflow-y: auto;
   }
 }
 
@@ -54,21 +78,34 @@ $hamburgar-color-2: #fff;
   p {
     color: $gray-2;
     font-size: 0.8rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @media only screen and (min-width : 768px) {
+    @include navbar-item-align;
   }
 }
-.sidebar-item p:last-child {
-  margin-bottom: 0;
-}
+
 
 /* Sidebar nav */
 .sidebar-nav {
   border-bottom: 1px solid rgba(255,255,255,.1);
+  @media only screen and (min-width : 768px) {
+    @include navbar-item-align;
+    &.right {
+      float: right; // Log in link.
+    }
+  }
 }
 .sidebar-nav-item {
   display: block;
   padding: .5rem 1rem;
   border-top: 1px solid rgba(255,255,255,.1);
   font-size: 1.0rem;
+  @media only screen and (min-width : 768px) {
+    @include navbar-item-align;
+  }
 }
 .sidebar-nav-item.active,
 a.sidebar-nav-item:hover,
@@ -80,11 +117,12 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 48em) {
   .sidebar-item {
-    padding: 1.5rem;
+    padding-left:  .5rem;
+    padding-right: .5rem;
   }
   .sidebar-nav-item {
-    padding-left:  1.5rem;
-    padding-right: 1.5rem;
+    padding-left:  .5rem;
+    padding-right: .5rem;
   }
 }
 
@@ -111,6 +149,9 @@ a.sidebar-nav-item:focus {
   border: 1px solid $gray-3;
   // border-radius: .25rem;
   cursor: pointer;
+  @media only screen and (min-width : 768px) {
+    display: none;
+  }
 }
 
 .sidebar-toggle:before {
@@ -131,7 +172,6 @@ a.sidebar-nav-item:focus {
   background-color: $hamburgar-color-1;
 }
 
-.sidebar-toggle:active:before,
 #sidebar-checkbox:focus ~ .sidebar-toggle:before,
 #sidebar-checkbox:checked ~ .sidebar-toggle:before {
   background-image: -webkit-linear-gradient(to bottom, $hamburgar-color-2, $hamburgar-color-2 20%, $hamburgar-color-1 20%, $hamburgar-color-1 40%, $hamburgar-color-2 40%, $hamburgar-color-2 60%, $hamburgar-color-1 60%, $hamburgar-color-1 80%, $hamburgar-color-2 80%, $hamburgar-color-2 100%);

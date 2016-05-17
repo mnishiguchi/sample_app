@@ -3,10 +3,11 @@ input#sidebar-checkbox.sidebar-checkbox type="checkbox" /
 
 /! Toggleable sidebar
 #sidebar.sidebar
-  h4#logo.sidebar-item= link_to full_title, root_path
-  nav.sidebar-nav
-    ul
-      li= link_to "Home",    root_path
-      li= link_to "About",   about_path
-      li= link_to "Help",    help_path
-      li= link_to "Contact", contact_path
+  h4#logo.sidebar-item= link_to "Sample App", root_path
+  nav.sidebar-nav  
+    = link_to "Home",    root_path, class: "sidebar-nav-item"
+    = link_to "About",   about_path, class: "sidebar-nav-item"
+    = link_to "Help",    help_path, class: "sidebar-nav-item"
+    = link_to "Contact", contact_path, class: "sidebar-nav-item"
+  nav.sidebar-nav.right  
+    = link_to "Log in",  "#", class: "sidebar-nav-item"
