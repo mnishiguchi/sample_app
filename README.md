@@ -61,3 +61,9 @@ rake db:rollback
 ### Regular expression
 - [The valid email regex](https://www.railstutorial.org/book/modeling_users#table-valid_email_regex)
 - [The Rubular regular expression editor](http://www.rubular.com/)
+
+---
+
+### Fixtures
+
+- Default fixtures that were generated automatically by Rails sometimes cause a test to fail. Just delete them.
