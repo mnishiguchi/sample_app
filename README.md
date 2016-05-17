@@ -30,46 +30,6 @@ $ rails generate integration_test site_layout
 
 ---
 
-### [rails generate](http://guides.rubyonrails.org/command_line.html#rails-generate)
-
-```bash
-# List all the available generators
-$ rails generate
-```
-
-#### The controller generator
-- Usage: `rails generate controller NAME [action action] [options]`
-- Example: `rails generate controller Users new`
-- Help: `rails generate controller`
-
-#### The model generator
-- Usage: `rails generate model NAME [field[:type][:index] field[:type][:index]] [options]`
-- Example: `rails generate model User name:string email:string`
-- Help: `rails generate model`
-
-#### The resource generator
-- Stubs out a new resource including:
-  + an empty model
-  + controller suitable for a restful, resource-oriented application
-- Usage: `rails generate resource NAME [field[:type][:index] field[:type][:index]] [options]`
-- Example: `rails generate resource post title:string body:text published:boolean``
-- Help: `rails generate resource`
-
-#### The scaffold generator
-- Generates a full set of:
-  + model
-  + database migration for that model
-  + controller to manipulate it
-  + views to view and manipulate the data
-  + a test suite for each of the above
-- Usage: `rails generate scaffold NAME [field[:type][:index] field[:type][:index]] [options]`
-- Example: `rails generate scaffold post title body:text published:boolean`
-- Help: `rails generate scaffold`
-
-#### [RAILS: GENERATE MODEL VS. RESOURCE VS. SCAFFOLD](http://www.korenlc.com/rails-generate-model-vs-resourse-vs-scaffold/)
-
----
-
 ### Database in Rails
 http://edgeguides.rubyonrails.org/active_record_migrations.html#rolling-back
 
