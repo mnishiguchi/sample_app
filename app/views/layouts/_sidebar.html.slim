@@ -1,9 +1,12 @@
 label for="sidebar-checkbox" class="sidebar-toggle"
+  = fa_icon "bars 2x"
 input#sidebar-checkbox.sidebar-checkbox type="checkbox" /
 
 /! Toggleable sidebar
 #sidebar.sidebar
-  h4#logo.sidebar-item= link_to "Sample App", root_path
+  label for="sidebar-checkbox" class="sidebar-toggle"
+    = fa_icon "times 2x"
+  h4.logo.sidebar-item= link_to "Sample App", root_path
   nav.sidebar-nav  
     = link_to "Home",    root_path, class: "sidebar-nav-item"
     = link_to "About",   about_path, class: "sidebar-nav-item"
