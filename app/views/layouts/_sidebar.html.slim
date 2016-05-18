@@ -6,7 +6,8 @@ input#sidebar-checkbox.sidebar-checkbox type="checkbox" /
 #sidebar.sidebar
   label for="sidebar-checkbox" class="sidebar-toggle"
     = fa_icon "times 2x"
-  h4.logo.sidebar-item= link_to "Sample App", root_path
+  .sidebar-item
+    = link_to "Sample App", root_path, class: "logo"
   nav.sidebar-nav  
     = link_to "Home",    root_path, class: "sidebar-nav-item"
     = link_to "About",   about_path, class: "sidebar-nav-item"

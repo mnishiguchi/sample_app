@@ -33,6 +33,7 @@ $navbar-height: 50px;
   left: auto;
   right: -14rem;
   width: 14rem;
+  padding-top: 2rem;  // Only for sliding slidebar.
   visibility: hidden;
   overflow-y: auto;
   font-family: $heading-font-family;
@@ -53,8 +54,7 @@ $navbar-height: 50px;
     z-index: 2;
     width: auto;
     height: $navbar-height;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 0 1.5rem;
     visibility: visible;
     overflow-y: auto;
   }
@@ -68,12 +68,9 @@ $navbar-height: 50px;
 }
 .sidebar-item {
   padding: 1rem;
-  &:first-of-type {
-    margin-top: 2rem;
-  }
   .logo {
-    margin-right: 10px;
     font-size: 1.7em;
+    margin-right: 1.5rem;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: -1px;
@@ -83,22 +80,20 @@ $navbar-height: 50px;
       text-decoration: none;
     }
   }
-  p {
-    color: $gray-2;
-    font-size: 0.8rem;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+  // p {
+  //   color: $gray-2;
+  //   font-size: 0.8rem;
+  //   &:last-child {
+  //     margin-bottom: 0;
+  //   }
+  // }
   // For larger devices, show only the site title.
   @media only screen and (min-width : 768px) {
+    padding: 0;
     @include navbar-item-align;
-    &:first-of-type {
-      margin-top: 0;
-    }
-    p {
-      display: none;  // Hide the description.
-    }
+    // p {
+    //   display: none;  // Hide the description.
+    // }
   }
 }
 

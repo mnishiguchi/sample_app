@@ -1,0 +1,22 @@
+{
+  "name": "sample_app",
+  "version": "1.0.0",
+  "description": "This is the sample application for the [*Ruby on Rails Tutorial: Learn Web Development with Rails*](http://www.railstutorial.org/) by [Michael Hartl](http://www.michaelhartl.com/).",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnishiguchi/sample_app.git"
+  },
+  "author": "Masatoshi Nishiguchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnishiguchi/sample_app/issues"
+  },
+  "homepage": "https://github.com/mnishiguchi/sample_app#readme"
+}

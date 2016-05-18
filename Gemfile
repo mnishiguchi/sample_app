@@ -16,6 +16,7 @@ gem 'jquery-rails',            '4.0.3'
 gem 'mini_magick',             '3.8.0'
 gem 'sass-rails',              '5.0.2'
 gem 'sdoc',                    '0.4.0', group: :doc
+gem 'simple_form'
 gem 'slim-rails'
 gem 'turbolinks',              '2.3.0'
 gem 'uglifier',                '2.5.3'
