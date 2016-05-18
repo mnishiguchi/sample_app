@@ -4,8 +4,10 @@
   .container
     h1 Sign up
     = simple_form_for(@user) do |f|
-      = f.input :name
-      = f.input :email
-      = f.input :password
-      = f.input :password_confirmation
+      = render 'shared/error_messages'
+      = f.input :name, error: false
+      = f.input :email, error: false
+      = f.input :password, error: false
+      = f.input :password_confirmation, error: false, label: false, \
+                                        placeholder: "password confirmation"
       = f.submit "Create my account", class: "btn"

@@ -2,8 +2,9 @@
 // https://github.com/rails/sass-rails
 @import "base";
 @import "typography";
-// https://github.com/bokmann/font-awesome-rails
-@import "font-awesome";
+
+@import "font-awesome"; // https://github.com/bokmann/font-awesome-rails
+@import "form";
 @import "custom_grid";
 @import "layout";
 @import "sidebar";

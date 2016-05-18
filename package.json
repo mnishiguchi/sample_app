@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/mnishiguchi/sample_app/issues"
   },
-  "homepage": "https://github.com/mnishiguchi/sample_app#readme"
+  "homepage": "https://github.com/mnishiguchi/sample_app#readme",
+  "devDependencies": {
+    "bootstrap": "^3.3.6"
+  }
 }
