@@ -27,7 +27,10 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }
+  # `has_secure_password` automatically adds validations for:
+  # - presence of password
+  # - confirmation of password (using a "password_confirmation" attribute)
 
   private
 

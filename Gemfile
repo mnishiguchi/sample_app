@@ -6,8 +6,9 @@ gem 'pg',                      '0.17.1'
 gem 'bcrypt',                  '3.1.7'
 gem 'bootstrap-sass',          '3.2.0.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+gem "browserify-rails"
 gem 'carrierwave',             '0.10.0'
-gem 'coffee-rails',            '4.1.0'
+# gem 'coffee-rails',            '4.1.0'
 gem 'faker',                   '1.4.2'
 gem 'fog',                     '1.36.0'
 gem "font-awesome-rails"

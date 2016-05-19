@@ -80,3 +80,5 @@ By comparing hashed values instead of raw passwords, we will be able to authenti
 https://www.railstutorial.org/book/modeling_users#sec-adding_a_secure_password
 
 ---
+
+### [A minimal setup for using ES6 modules in Rails](https://lorefnon.me/2015/11/15/a-minimal-setup-for-using-es6-modules-in-rails.html#header1-8)
