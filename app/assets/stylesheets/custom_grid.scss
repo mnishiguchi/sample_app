@@ -1,5 +1,10 @@
 // http://qiita.com/hashrock/items/5c18bf5086f52e4122e5
 
+@mixin column($percentage-width) {
+  flex: 0 0 ($percentage-width);
+  max-width: ($percentage-width); /* IE11 */
+}
+
 // This is equivalent of Bootstrap row.
 .grid {
   display: flex;
@@ -7,37 +12,30 @@
 }
 // Basic configuration of columns.
 .col {
-  overflow: hidden;
-  text-overflow: ellipsis;
   h1, h2, h3, h4, p {
+    // Add ellipsis in case of text overflowing.
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  // The offset spacer.
+  &.offset {
+    height: 0;
+  }
 }
 // Columns in various widths.
-.col.col-1-3 {
-  flex: 0 0 (100% / 3 * 1);
-  max-width: (100% / 3 * 1); /* IE11 */
-}
-.col.col-2-3 {
-  flex: 0 0 (100% / 3 * 2);
-  max-width: (100% / 3 * 2); /* IE11 */
-}
-.col.col-1-4 {
-  flex: 0 0 (100% / 4 * 1);
-  max-width: (100% / 4 * 1); /* IE11 */
-}
-.col.col-2-4 {
-  flex: 0 0 (100% / 4 * 2);
-  max-width: (100% / 4 * 2); /* IE11 */
-}
-.col.col-3-4 {
-  flex: 0 0 (100% / 4 * 3);
-  max-width: (100% / 4 * 3); /* IE11 */
-}
+.col.col-1-3 { @include column(100% / 3 * 1); }
+.col.col-2-3 { @include column(100% / 3 * 2); }
+.col.col-1-4 { @include column(100% / 4 * 1); }
+.col.col-2-4 { @include column(100% / 4 * 2); }
+.col.col-3-4 { @include column(100% / 4 * 3); }
+.col.col-1-5 { @include column(100% / 5 * 1); }
+.col.col-2-5 { @include column(100% / 5 * 2); }
+.col.col-3-5 { @include column(100% / 5 * 3); }
+.col.col-4-5 { @include column(100% / 5 * 4); }
+
 // For smaller devices, stretch all the columns to 100%.
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .col {
     flex: 0 0 100%!important;
     max-width: 100%!important; /* IE11 */

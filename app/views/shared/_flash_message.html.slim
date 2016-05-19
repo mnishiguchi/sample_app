@@ -1,0 +1,5 @@
+/ This is to render a Bootstrap 3 alert according to the specified alert type.
+/ https://www.railstutorial.org/book/sign_up#sec-the_flash
+- flash.each do |message_type, message|
+  div [ class = "alert alert-#{message_type}" ]
+    = message
