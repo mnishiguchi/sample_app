@@ -9,9 +9,7 @@ by [Michael Hartl](http://www.michaelhartl.com/).
 
 ## Memo
 
-### Model test
-
-#### Run
+#### Running tests
 
 ```bash
 $ bundle exec rake test             # Run all the tests.
@@ -19,7 +17,14 @@ $ bundle exec rake test:models      # Run only the model tests.
 $ bundle exec rake test:integration # Run only the integration tests.
 ```
 
-### Integration test
+```bash
+# Run a specific test within a test file
+$ bundle exec rake test\           
+  TEST=test/integration/users_login_test.rb\
+  TESTOPTS="--name test_login_with_valid_information"
+```
+
+#### Generating a test
 
 ```bash
 $ rails generate integration_test site_layout

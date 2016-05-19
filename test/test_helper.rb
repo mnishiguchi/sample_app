@@ -12,4 +12,13 @@ class ActiveSupport::TestCase
   include ApplicationHelper
 
   # Add more helper methods to be used by all tests here...
+
+  # Returns true if a test user is logged in.
+  def user_is_logged_in?
+    # Because helper methods are not available in tests, 
+    # we can’t use the `current_user` method,
+    # but the `session` method is available.
+    ! session[:user_id].nil?
+  end
+
 end

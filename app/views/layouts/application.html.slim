@@ -3,7 +3,8 @@ html
   head
     meta [name="viewport" content="width=device-width, initial-scale=1.0"]
   
-    title= full_title yield(:title)
+    title
+      = full_title yield(:title)
     = stylesheet_link_tag 'application', media: 'all', \
                                             'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -15,7 +16,8 @@ html
     = render 'layouts/sidebar'
     .wrap
       .container.content
-        = render 'shared/flash_message'
-        main= yield
+        = render 'layouts/flash_message'
+        main
+          = yield
       = render 'layouts/footer'
     = debug(params) if Rails.env.development?

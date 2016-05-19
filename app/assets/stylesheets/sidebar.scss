@@ -5,6 +5,8 @@ $navbar-height: 50px;
   display: inline-block;
   margin: 0;
   padding: 0;
+  border: none;
+  vertical-align: top;
   height: $navbar-height;
   line-height: $navbar-height;
 }
@@ -89,7 +91,6 @@ $navbar-height: 50px;
   // }
   // For larger devices, show only the site title.
   @media only screen and (min-width : 768px) {
-    padding: 0;
     @include navbar-item-align;
     // p {
     //   display: none;  // Hide the description.
@@ -132,7 +133,7 @@ $navbar-height: 50px;
     &:not(.active):hover {
       color: $link-hover-color;
       // background: rgba(0,0,0,.5);
-      border-bottom: 1px solid $blue;
+      // border-bottom: 1px solid $blue;
       text-decoration: none;
     }
   }

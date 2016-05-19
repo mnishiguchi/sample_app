@@ -9,8 +9,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     # Check for the correct links
     assert_select "a[href=?]", root_path
     assert_select "a[href=?]", about_path
-    assert_select "a[href=?]", help_path
-    assert_select "a[href=?]", contact_path
+    # assert_select "a[href=?]", help_path
+    # assert_select "a[href=?]", contact_path
 
     # Get the signup path
     get signup_path
