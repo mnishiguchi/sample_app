@@ -32,6 +32,12 @@ $ rails generate integration_test site_layout
 
 - [Some uses of `assert_select`](https://www.railstutorial.org/book/filling_in_the_layout#table-assert_select)
 
+#### Logging
+
+```bash
+$ tail -f log/test.log
+```
+
 ---
 
 ## Database in Rails
@@ -86,38 +92,16 @@ https://www.railstutorial.org/book/modeling_users#sec-adding_a_secure_password
 
 ---
 
-## Using ES6 modules in Rails
+### A minimal setup for using ES6 modules in Rails
 
-#### Install [browserify-rails](https://github.com/browserify-rails/browserify-rails)
-```bash
-gem "browserify-rails"
-```
+#### Install and set up browserify-rails
+- [A minimal setup for using ES6 modules in Rails](https://lorefnon.me/2015/11/15/a-minimal-setup-for-using-es6-modules-in-rails.html#header1-8)
 
-#### Install the following dependencies through npm
+#### Install browserify and browserify-incremental through npm
 
 ```bash
-$ npm install --save babel-preset-es2015
-$ npm install --save babelify
-$ npm install --save browserify
-$ npm install --save browserify-incremental
-```
-
-#### Add to Heroku buildpacks that run bundle and npm install
-```bash
-$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs.git
-$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-ruby.git
-```
-
-#### [Add the following line to the `config/application.rb` file](https://github.com/browserify-rails/browserify-rails#using-browserify-transforms)
-
-```bash
-config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 ] --extensions .es6 ]"
-```
-
-#### [Claer the asset pipeline cache](https://github.com/browserify-rails/browserify-rails#clear-the-asset-pipeline-cache)
-
-```bash
-$ rake tmp:cache:clear
+$ npm install browserify --save
+$ npm install browserify-incremental --save
 ```
 
 #### Precompile assets before pushing it to heroku

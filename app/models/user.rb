@@ -8,6 +8,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string
+#  remember_digest :string
 #
 # Indexes
 #
@@ -15,6 +16,8 @@
 #
 
 class User < ActiveRecord::Base
+
+  attr_accessor :remember_token
 
   before_save :downcase_email
 
@@ -28,18 +31,42 @@ class User < ActiveRecord::Base
 
   VALID_PASSWORD_REGEX = /\w+/
   has_secure_password
-  validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, length: { minimum: 6 },
+                       format: { with: VALID_PASSWORD_REGEX }
   ## `has_secure_password` automatically adds validations for:
   #   - presence of password
   #   - confirmation of password (using a "password_confirmation" attribute)
   ## I used regex to reject a blank password because using `presence: true`
   # causes dupulicate error massages.
 
-  # Returns the hash digest of the given string.
-  def User.digest(string)
+  # Returns the irreversible hash digest of the given string.
+  def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  # Returns a random token.
+  def self.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # Remembers a user in the database for use in persistent sessions.
+  def persist
+    # Create a new token and save it to database.
+    # NOTE: Bypass the validations because we don’t have access to the user’s password.
+    @remember_token = User.new_token
+    update_column(:remember_digest, User.digest(remember_token))
+  end
+
+  # Returns true if the given token matches the digest.
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  # Forgets a user.
+  def unpersist
+    update_column(:remember_digest, nil)
   end
 
   private
@@ -48,5 +75,4 @@ class User < ActiveRecord::Base
     def downcase_email
       email.downcase!
     end
-
 end
