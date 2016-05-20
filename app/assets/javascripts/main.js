@@ -1,3 +1,3 @@
-import initSidebar from './sidebar'
+const initSidebar = require('./sidebar');
 
-initSidebar()
+initSidebar();

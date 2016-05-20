@@ -17,7 +17,7 @@ input#sidebar-checkbox.sidebar-checkbox type="checkbox" /
     - if logged_in?
       = link_to "All users", users_path, class: "sidebar-nav-item"
       = link_to "Profile", current_user, class: "sidebar-nav-item"
-      = link_to "Settings", current_user, class: "sidebar-nav-item"
-      = link_to "Log out", logout_path, method: :delete, class: "sidebar-nav-item"
+      = link_to "Settings", "#", class: "sidebar-nav-item"
+      = link_to "Log out", logout_path, method: "delete", class: "sidebar-nav-item"
     - else
       = link_to "Log in", login_path, class: "sidebar-nav-item"

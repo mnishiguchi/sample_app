@@ -1,4 +1,8 @@
-function initSidebar() {
+/**
+ * Allows the sidebar to close when a user clicked outside the sidebar,
+ * or when the screen is resized.
+ */
+module.exports = function(){
 
   document.addEventListener("DOMContentLoaded", () => {
 
@@ -21,6 +25,4 @@ function initSidebar() {
       checkbox.checked = false;
     }, false);
   });
-}
-
-export default initSidebar;
+};

@@ -7,7 +7,7 @@ by [Michael Hartl](http://www.michaelhartl.com/).
 
 ---
 
-## Memo
+## Minitest memo
 
 #### Running tests
 
@@ -34,7 +34,7 @@ $ rails generate integration_test site_layout
 
 ---
 
-### Database in Rails
+## Database in Rails
 http://edgeguides.rubyonrails.org/active_record_migrations.html#rolling-back
 
 #### Database level validation
@@ -62,13 +62,13 @@ rake db:rollback
 
 ---
 
-### Regular expression
+## Regular expression
 - [The valid email regex](https://www.railstutorial.org/book/modeling_users#table-valid_email_regex)
 - [The Rubular regular expression editor](http://www.rubular.com/)
 
 ---
 
-### Fixtures
+## Fixtures
 
 - Default fixtures that were generated automatically by Rails sometimes cause a test to fail. Just delete them.
 
@@ -86,4 +86,56 @@ https://www.railstutorial.org/book/modeling_users#sec-adding_a_secure_password
 
 ---
 
-### [A minimal setup for using ES6 modules in Rails](https://lorefnon.me/2015/11/15/a-minimal-setup-for-using-es6-modules-in-rails.html#header1-8)
+## Using ES6 modules in Rails
+
+#### Install [browserify-rails](https://github.com/browserify-rails/browserify-rails)
+```bash
+gem "browserify-rails"
+```
+
+#### Install the following dependencies through npm
+
+```bash
+$ npm install --save babel-preset-es2015
+$ npm install --save babelify
+$ npm install --save browserify
+$ npm install --save browserify-incremental
+```
+
+#### Add to Heroku buildpacks that run bundle and npm install
+```bash
+$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs.git
+$ heroku buildpacks:add https://github.com/heroku/heroku-buildpack-ruby.git
+```
+
+#### [Add the following line to the `config/application.rb` file](https://github.com/browserify-rails/browserify-rails#using-browserify-transforms)
+
+```bash
+config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 ] --extensions .es6 ]"
+```
+
+#### [Claer the asset pipeline cache](https://github.com/browserify-rails/browserify-rails#clear-the-asset-pipeline-cache)
+
+```bash
+$ rake tmp:cache:clear
+```
+
+#### Precompile assets before pushing it to heroku
+
+```bash
+bundle exec rake assets:precompile
+```
+
+---
+
+## Troubleshooting
+
+#### ActionController::RoutingError (No route matches [GET] "/logout")...
+- Make sure that `jquery` and `jquery_ujs` are included in the `application.js`
+ file.
+- [The PATCH and DELETE verbs are less common than GET and POST and browsers are incapable of sending them natively. Rails makes it seem like browsers are issuing such requests, using JavaScript.](https://www.railstutorial.org/book/static_pages#aside-get_etc)
+
+```js
+//= require jquery
+//= require jquery_ujs
+```

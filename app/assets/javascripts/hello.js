@@ -1,5 +1,3 @@
-function hello() {
+module.exports =  function(){
   alert('hello world');
 }
-
-export default hello;
