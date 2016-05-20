@@ -23,4 +23,11 @@ module SessionsHelper
     # Call the current_user() method and check if a logged-in user exists.
     ! current_user().nil?
   end
+
+  # Logs out the current user.
+  def log_out
+    # Logging out involves undoing the effects of the log_in method.
+    session.delete(:user_id) # Delete the user id stored in the session.
+    @current_user = nil      # Clear the cached current user.
+  end
 end

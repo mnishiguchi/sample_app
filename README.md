@@ -86,4 +86,34 @@ https://www.railstutorial.org/book/modeling_users#sec-adding_a_secure_password
 
 ---
 
-### [A minimal setup for using ES6 modules in Rails](https://lorefnon.me/2015/11/15/a-minimal-setup-for-using-es6-modules-in-rails.html#header1-8)
+### A minimal setup for using ES6 modules in Rails
+
+#### Install and set up browserify-rails
+- [A minimal setup for using ES6 modules in Rails](https://lorefnon.me/2015/11/15/a-minimal-setup-for-using-es6-modules-in-rails.html#header1-8)
+
+#### Install browserify and browserify-incremental through npm
+
+```bash
+$ npm install browserify --save
+$ npm install browserify-incremental --save
+```
+
+#### Precompile assets before pushing it to heroku
+
+```bash
+bundle exec rake assets:precompile
+```
+
+---
+
+## Troubleshooting
+
+#### ActionController::RoutingError (No route matches [GET] "/logout")...
+- Make sure that `jquery` and `jquery_ujs` are included in the `application.js`
+ file.
+- [The PATCH and DELETE verbs are less common than GET and POST and browsers are incapable of sending them natively. Rails makes it seem like browsers are issuing such requests, using JavaScript.](https://www.railstutorial.org/book/static_pages#aside-get_etc)
+
+```js
+//= require jquery
+//= require jquery_ujs
+```
